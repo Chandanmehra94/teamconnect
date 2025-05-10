@@ -1,70 +1,184 @@
-# Getting Started with Create React App
+TeamConnect - Internal Social Media Platform
+TeamConnect ek internal social media platform hai jo teams ke liye banaya gaya hai taaki wo easily connect kar sakein, updates share kar sakein, aur team ka progress track kar sakein. Yeh app ek modern UI ke saath aata hai jo simple aur user-friendly hai, aur teams ke communication aur collaboration ko enhance karta hai. Yeh ek full-stack application hai jo React front-end aur Spring Boot back-end ke saath built hai, aur H2 database use karta hai data store karne ke liye.
+Features
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Post Sharing: Team members apne updates ya thoughts share kar sakte hain with file attachments.
+Comments & Likes: Posts pe comments aur likes ke through interaction.
+Analytics Dashboard: Total posts, likes, comments, aur department-wise activity ka overview.
+User Authentication: Secure signup aur login system departments ke saath.
+Responsive UI: Mobile aur desktop dono ke liye optimized with a clean design.
 
-## Available Scripts
+Tech Stack
 
-In the project directory, you can run:
+Front-end: React, Axios, CSS
+Back-end: Spring Boot, Spring Data JPA, H2 Database
+Tools: Maven, Node.js, Git
 
-### `npm start`
+Screenshots
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+Description
+Screenshot
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Sign Up Page
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+Feed Page
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Analytics Dashboard
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Post Creation
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Prerequisites
 
-### Analyzing the Bundle Size
+Node.js (v20.x ya latest): Download
+Java JDK (17 ya latest): Download
+Maven (3.9.x ya latest): Download
+Git: Download
+Ek modern web browser (Chrome, Firefox, etc.).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Setup and Installation
+1. Clone the Repository
+git clone https://github.com/<tumhara-username>/team-connect.git
+cd team-connect
 
-### Making a Progressive Web App
+2. Back-end Setup
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Back-end folder me jao:cd backend/teamconnect
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Maven dependencies install karo:mvn install
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Spring Boot application run karo:mvn spring-boot:run
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Verify karo:
+Open http://localhost:8080/api/posts (JSON return hoga).
+H2 console access karo at http://localhost:8080/h2-console:
+JDBC URL: jdbc:h2:mem:testdb
+Username: sa
+Password: (blank)
+
+
+
+
+
+3. Front-end Setup
+
+Front-end folder me jao:cd frontend/teamconnect
+
+
+Node.js dependencies install karo:npm install
+
+
+React app start karo:npm start
+
+
+Browser me http://localhost:3000 open karo.
+
+4. Test the Application
+
+Sign Up/Login: Sign up page pe ek account banao (email, password, department).
+View Feed: Feed page pe posts, comments, aur likes dekho.
+Add a Post:
+Post creation form me details daalo (jaise "Team meeting scheduled").
+Submit karo aur feed pe post dekho.
+
+
+Analytics Dekho: Analytics page pe total posts, likes, comments check karo.
+Database: H2 console me POST table check karo for new entries.
+
+Dependencies
+Back-end (backend/teamconnect/pom.xml)
+
+Spring Boot Starter Web
+Spring Data JPA
+H2 Database
+Lombok
+Spring Boot DevTools
+
+Front-end (frontend/teamconnect/package.json)
+
+React
+axios
+Node.js
+
+External Libraries
+
+Poppins Font: https://fonts.googleapis.com/css2?family=Poppins
+
+Configurations
+
+Back-end (backend/teamconnect/src/main/resources/application.properties):spring.datasource.url=jdbc:h2:mem:testdb
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+spring.h2.console.enabled=true
+spring.jpa.hibernate.ddl-auto=update
+
+
+CORS: Enabled in PostController.java for http://localhost:3000.
+
+
+Front-end:
+API endpoint: http://localhost:8080/api/posts.
+Port: 3000 (configurable in package.json).
+
+
+
+Troubleshooting
+
+Maven Error:
+Check mvn -version aur JAVA_HOME (JDK 17).
+Run mvn clean install.
+
+
+Node.js Error:
+Delete node_modules/ aur package-lock.json, then npm install.
+
+
+CORS Issue:
+Verify @CrossOrigin("http://localhost:3000") in PostController.java.
+
+
+Port Conflict:
+Update package.json:"scripts": {
+  "start": "react-scripts start --port 3001"
+}
+
+
+
+
+
+Demo
+A Single Page Application (SPA) with:
+
+Database: H2 for post storage.
+APIs: RESTful endpoints (GET/POST /api/posts).
+Libraries: Axios, Poppins font.
+
+Screenshots me UI aur functionality dekho.
+Project Notes
+Meets requirements:
+
+Database: H2 (POST table).
+APIs: GET/POST /api/posts.
+Libraries: Axios, Poppins font.
+Documentation: README with setup, dependencies, screenshots.
+
+License
+MIT License.
+
+Developed by Chandan Dehariya.
