@@ -1,12 +1,12 @@
 TeamConnect - Internal Social Media Platform
-TeamConnect ek internal social media platform hai jo teams ke liye banaya gaya hai taaki wo easily connect kar sakein, updates share kar sakein, aur team ka progress track kar sakein. Yeh app ek modern UI ke saath aata hai jo simple aur user-friendly hai, aur teams ke communication aur collaboration ko enhance karta hai. Yeh ek full-stack application hai jo React front-end aur Spring Boot back-end ke saath built hai, aur H2 database use karta hai data store karne ke liye.
+TeamConnect is an internal social media platform designed for teams to easily connect, share updates, and track team progress. The app features a modern, simple, and user-friendly UI, enhancing team communication and collaboration. It is a full-stack application built with a React front-end, Spring Boot back-end, and H2 database for data storage.
 Features
 
-Post Sharing: Team members apne updates ya thoughts share kar sakte hain with file attachments.
-Comments & Likes: Posts pe comments aur likes ke through interaction.
-Analytics Dashboard: Total posts, likes, comments, aur department-wise activity ka overview.
-User Authentication: Secure signup aur login system departments ke saath.
-Responsive UI: Mobile aur desktop dono ke liye optimized with a clean design.
+Post Sharing: Team members can share updates or thoughts with file attachments.
+Comments & Likes: Interact with posts through comments and likes.
+Analytics Dashboard: Overview of total posts, likes, comments, and department-wise activity.
+User Authentication: Secure signup and login system with department selection.
+Responsive UI: Optimized for both mobile and desktop with a clean design.
 
 Tech Stack
 
@@ -16,6 +16,7 @@ Tools: Maven, Node.js, Git
 
 Screenshots
 
+public/feed1.png
 
 
 Description
@@ -31,6 +32,10 @@ Feed Page
 
 
 
+Feed Page (Alternate)
+
+
+
 Analytics Dashboard
 
 
@@ -41,34 +46,40 @@ Post Creation
 
 Prerequisites
 
-Node.js (v20.x ya latest): Download
-Java JDK (17 ya latest): Download
-Maven (3.9.x ya latest): Download
+Node.js (v20.x or latest): Download
+Java JDK (17 or latest): Download
+Maven (3.9.x or latest): Download
 Git: Download
-Ek modern web browser (Chrome, Firefox, etc.).
+A modern web browser (Chrome, Firefox, etc.).
 
 Setup and Installation
 1. Clone the Repository
-git clone https://github.com/<tumhara-username>/team-connect.git
+git clone https://github.com/<your-username>/team-connect.git
 cd team-connect
 
 2. Back-end Setup
 
-Back-end folder me jao:cd backend/teamconnect
+Navigate to the back-end folder:
+
+cd backend/teamconnect
 
 
-Maven dependencies install karo:mvn install
+Install Maven dependencies:
+
+mvn install
 
 
-Spring Boot application run karo:mvn spring-boot:run
+Run the Spring Boot application:
+
+mvn spring-boot:run
 
 
-Verify karo:
-Open http://localhost:8080/api/posts (JSON return hoga).
-H2 console access karo at http://localhost:8080/h2-console:
+Verify:
+Open http://localhost:8080/api/posts (should return JSON).
+Access the H2 console at http://localhost:8080/h2-console:
 JDBC URL: jdbc:h2:mem:testdb
 Username: sa
-Password: (blank)
+Password: (leave blank)
 
 
 
@@ -76,28 +87,34 @@ Password: (blank)
 
 3. Front-end Setup
 
-Front-end folder me jao:cd frontend/teamconnect
+Navigate to the front-end folder:
+
+cd frontend/teamconnect
 
 
-Node.js dependencies install karo:npm install
+Install Node.js dependencies:
+
+npm install
 
 
-React app start karo:npm start
+Start the React app:
+
+npm start
 
 
-Browser me http://localhost:3000 open karo.
+Open http://localhost:3000 in your browser.
 
 4. Test the Application
 
-Sign Up/Login: Sign up page pe ek account banao (email, password, department).
-View Feed: Feed page pe posts, comments, aur likes dekho.
+Sign Up/Login: Create an account on the signup page (email, password, department).
+View Feed: Check posts, comments, and likes on the feed page.
 Add a Post:
-Post creation form me details daalo (jaise "Team meeting scheduled").
-Submit karo aur feed pe post dekho.
+Enter details in the post creation form (e.g., "Team meeting scheduled").
+Submit and view the post on the feed.
 
 
-Analytics Dekho: Analytics page pe total posts, likes, comments check karo.
-Database: H2 console me POST table check karo for new entries.
+View Analytics: Check total posts, likes, and comments on the analytics page.
+Database: Verify new entries in the POST table via the H2 console.
 
 Dependencies
 Back-end (backend/teamconnect/pom.xml)
@@ -111,16 +128,16 @@ Spring Boot DevTools
 Front-end (frontend/teamconnect/package.json)
 
 React
-axios
+Axios
 Node.js
 
 External Libraries
 
-Poppins Font: https://fonts.googleapis.com/css2?family=Poppins
+Poppins Font: Google Fonts
 
 Configurations
-
-Back-end (backend/teamconnect/src/main/resources/application.properties):spring.datasource.url=jdbc:h2:mem:testdb
+Back-end (backend/teamconnect/src/main/resources/application.properties)
+spring.datasource.url=jdbc:h2:mem:testdb
 spring.datasource.driverClassName=org.h2.Driver
 spring.datasource.username=sa
 spring.datasource.password=
@@ -131,29 +148,31 @@ spring.jpa.hibernate.ddl-auto=update
 
 CORS: Enabled in PostController.java for http://localhost:3000.
 
+Front-end
 
-Front-end:
-API endpoint: http://localhost:8080/api/posts.
-Port: 3000 (configurable in package.json).
-
-
+API Endpoint: http://localhost:8080/api/posts
+Port: 3000 (configurable in package.json)
 
 Troubleshooting
 
 Maven Error:
-Check mvn -version aur JAVA_HOME (JDK 17).
+
+Verify mvn -version and JAVA_HOME (set to JDK 17).
 Run mvn clean install.
 
 
 Node.js Error:
-Delete node_modules/ aur package-lock.json, then npm install.
+
+Delete node_modules/ and package-lock.json, then run npm install.
 
 
 CORS Issue:
-Verify @CrossOrigin("http://localhost:3000") in PostController.java.
+
+Ensure @CrossOrigin("http://localhost:3000") is set in PostController.java.
 
 
 Port Conflict:
+
 Update package.json:"scripts": {
   "start": "react-scripts start --port 3001"
 }
@@ -169,16 +188,15 @@ Database: H2 for post storage.
 APIs: RESTful endpoints (GET/POST /api/posts).
 Libraries: Axios, Poppins font.
 
-Screenshots me UI aur functionality dekho.
+View the UI and functionality in the screenshots.
 Project Notes
 Meets requirements:
 
 Database: H2 (POST table).
 APIs: GET/POST /api/posts.
 Libraries: Axios, Poppins font.
-Documentation: README with setup, dependencies, screenshots.
+Documentation: README with setup, dependencies, and screenshots.
 
 License
 MIT License.
-
 Developed by Chandan Dehariya.
