@@ -1,202 +1,197 @@
-TeamConnect - Internal Social Media Platform
-TeamConnect is an internal social media platform designed for teams to easily connect, share updates, and track team progress. The app features a modern, simple, and user-friendly UI, enhancing team communication and collaboration. It is a full-stack application built with a React front-end, Spring Boot back-end, and H2 database for data storage.
-Features
+# TeamConnect - Internal Social Media Platform
 
-Post Sharing: Team members can share updates or thoughts with file attachments.
-Comments & Likes: Interact with posts through comments and likes.
-Analytics Dashboard: Overview of total posts, likes, comments, and department-wise activity.
-User Authentication: Secure signup and login system with department selection.
-Responsive UI: Optimized for both mobile and desktop with a clean design.
+**TeamConnect** is a full-stack MERN (MongoDB, Express.js, React, Node.js) internal social media platform that allows teams to connect, share updates, and track team engagement. With a modern, responsive design and seamless UX, TeamConnect fosters collaboration within organizations.
 
-Tech Stack
+---
 
-Front-end: React, Axios, CSS
-Back-end: Spring Boot, Spring Data JPA, H2 Database
-Tools: Maven, Node.js, Git
+## 🚀 Features
 
-Screenshots
+- **Post Sharing**: Team members can share updates or announcements with optional file attachments.
+- **Comments & Likes**: Engage with posts through threaded comments and likes.
+- **Analytics Dashboard**: Visual overview of total posts, likes, comments, and department-wise activity.
+- **User Authentication**: Secure signup/login with department selection.
+- **Responsive UI**: Optimized for mobile and desktop with a sleek, minimalist design.
 
-public/feed1.png
+---
 
+## 🛠 Tech Stack
 
-Description
-Screenshot
+- **Front-end**: React, Axios, CSS
+- **Back-end**: Node.js, Express.js, MongoDB (Mongoose)
+- **Tools**: Git, VS Code, MongoDB Atlas or local MongoDB
 
+---
 
+## 📸 Screenshots
 
-Sign Up Page
-
-
-
-Feed Page
-
-
-
-Feed Page (Alternate)
+| Description            | Screenshot                         |
+|------------------------|-------------------------------------|
+| Feed Page              | ![Feed 1](public/feed1.png)         |
+| Sign Up Page           | ![Sign Up](public/signup.png)       |
+| Feed Page (Alternate)  | ![Feed 2](public/feed2.png)         |
+| Analytics Dashboard    | ![Analytics](public/analytics.png)  |
 
 
+---
 
-Analytics Dashboard
+## 📦 Prerequisites
 
+- **Node.js** (v20.x or later): [Download](https://nodejs.org/)
+- **MongoDB** (local installation or Atlas): [Download](https://www.mongodb.com/)
+- **Git**: [Download](https://git-scm.com/)
 
+---
 
-Post Creation
+## ⚙️ Setup and Installation
 
+### 1. Clone the Repository
 
-
-Prerequisites
-
-Node.js (v20.x or latest): Download
-Java JDK (17 or latest): Download
-Maven (3.9.x or latest): Download
-Git: Download
-A modern web browser (Chrome, Firefox, etc.).
-
-Setup and Installation
-1. Clone the Repository
+```bash
 git clone https://github.com/<your-username>/team-connect.git
 cd team-connect
+```
 
-2. Back-end Setup
+---
 
-Navigate to the back-end folder:
+### 2. Back-end Setup
 
-cd backend/teamconnect
-
-
-Install Maven dependencies:
-
-mvn install
-
-
-Run the Spring Boot application:
-
-mvn spring-boot:run
-
-
-Verify:
-Open http://localhost:8080/api/posts (should return JSON).
-Access the H2 console at http://localhost:8080/h2-console:
-JDBC URL: jdbc:h2:mem:testdb
-Username: sa
-Password: (leave blank)
-
-
-
-
-
-3. Front-end Setup
-
-Navigate to the front-end folder:
-
-cd frontend/teamconnect
-
-
-Install Node.js dependencies:
-
+```bash
+cd backend
 npm install
+```
 
+Create a `.env` file in the backend folder:
 
-Start the React app:
+```env
+PORT=5000
+MONGO_URI=mongodb://localhost:27017/teamconnect
+JWT_SECRET=your_secret_key
+```
 
+Start the server:
+
+```bash
 npm start
+```
 
+The backend will run on `http://localhost:5000/api`.
 
-Open http://localhost:3000 in your browser.
+---
 
-4. Test the Application
+### 3. Front-end Setup
 
-Sign Up/Login: Create an account on the signup page (email, password, department).
-View Feed: Check posts, comments, and likes on the feed page.
-Add a Post:
-Enter details in the post creation form (e.g., "Team meeting scheduled").
-Submit and view the post on the feed.
+```bash
+cd ../frontend
+npm install
+npm start
+```
 
+The frontend will be available at `http://localhost:3000`.
 
-View Analytics: Check total posts, likes, and comments on the analytics page.
-Database: Verify new entries in the POST table via the H2 console.
+---
 
-Dependencies
-Back-end (backend/teamconnect/pom.xml)
+## 🧪 Test the Application
 
-Spring Boot Starter Web
-Spring Data JPA
-H2 Database
-Lombok
-Spring Boot DevTools
+- **Sign Up/Login**: Create an account with email, password, and department.
+- **Feed**: View all posts and interact via likes and comments.
+- **Add a Post**: Use the post creation form to publish updates.
+- **Analytics**: View summary stats on posts, likes, and comments.
+- **Database**: MongoDB stores all data (users, posts, etc.) in the `teamconnect` DB.
 
-Front-end (frontend/teamconnect/package.json)
+---
 
-React
-Axios
-Node.js
+## 📚 Dependencies
 
-External Libraries
+### Back-end (`backend/package.json`)
+- express
+- mongoose
+- dotenv
+- bcryptjs
+- jsonwebtoken
+- multer
+- cors
 
-Poppins Font: Google Fonts
+### Front-end (`frontend/package.json`)
+- react
+- axios
+- react-router-dom
 
-Configurations
-Back-end (backend/teamconnect/src/main/resources/application.properties)
-spring.datasource.url=jdbc:h2:mem:testdb
-spring.datasource.driverClassName=org.h2.Driver
-spring.datasource.username=sa
-spring.datasource.password=
-spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
-spring.h2.console.enabled=true
-spring.jpa.hibernate.ddl-auto=update
+### External Libraries
+- **Poppins Font**: [Google Fonts](https://fonts.googleapis.com/css2?family=Poppins)
+- **Icons**: [Icons8](https://icons8.com)
 
+---
 
-CORS: Enabled in PostController.java for http://localhost:3000.
+## 🔧 Configurations
 
-Front-end
+### Environment Variables (`backend/.env`)
 
-API Endpoint: http://localhost:8080/api/posts
-Port: 3000 (configurable in package.json)
+```env
+PORT=5000
+MONGO_URI=mongodb://localhost:27017/teamconnect
+JWT_SECRET=your_secret_key
+```
 
-Troubleshooting
+### CORS
 
-Maven Error:
+Make sure `cors()` middleware is properly configured in Express to allow:
 
-Verify mvn -version and JAVA_HOME (set to JDK 17).
-Run mvn clean install.
+```js
+app.use(cors({
+  origin: 'http://localhost:3000',
+  credentials: true
+}));
+```
 
+---
 
-Node.js Error:
+## 🛠 Troubleshooting
 
-Delete node_modules/ and package-lock.json, then run npm install.
+- **MongoDB Connection Error**:
+  - Ensure MongoDB is running locally or check your Atlas URI.
 
+- **Port Conflict**:
+  - Change ports in `.env` or `package.json`.
 
-CORS Issue:
-
-Ensure @CrossOrigin("http://localhost:3000") is set in PostController.java.
-
-
-Port Conflict:
-
-Update package.json:"scripts": {
+```json
+"scripts": {
   "start": "react-scripts start --port 3001"
 }
+```
 
+- **CORS Issues**:
+  - Ensure CORS is enabled in the backend.
 
+- **JWT Errors**:
+  - Confirm `JWT_SECRET` is defined in `.env`.
 
+---
 
+## 🧪 Demo
 
-Demo
-A Single Page Application (SPA) with:
+A Single Page MERN Application:
 
-Database: H2 for post storage.
-APIs: RESTful endpoints (GET/POST /api/posts).
-Libraries: Axios, Poppins font.
+- **MongoDB**: Stores all app data.
+- **RESTful APIs**: For authentication, posts, and analytics.
+- **React**: Builds the UI with client-side routing and dynamic updates.
 
-View the UI and functionality in the screenshots.
-Project Notes
-Meets requirements:
+---
 
-Database: H2 (POST table).
-APIs: GET/POST /api/posts.
-Libraries: Axios, Poppins font.
-Documentation: README with setup, dependencies, and screenshots.
+## 🎓 Project Notes (College Submission)
 
-License
-MIT License.
-Developed by Chandan Dehariya.
+✅ MongoDB used as the database  
+✅ REST API endpoints for users and posts  
+✅ Secure Auth system  
+✅ Full CRUD operations  
+✅ Modern UI with screenshots  
+✅ README documentation provided  
+
+---
+
+## 📄 License
+
+MIT License
+
+---
+
+**Developed by Chandan Dehariya**
