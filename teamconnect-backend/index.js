@@ -17,7 +17,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 // MongoDB Connection
-mongoose.connect('mongodb://chandan:SimSimJi@cluster0-shard-00-00.jyf9u.mongodb.net:27017,cluster0-shard-00-01.jyf9u.mongodb.net:27017,cluster0-shard-00-02.jyf9u.mongodb.net:27017/?replicaSet=atlas-jfiu0g-shard-0&ssl=true&authSource=admin&retryWrites=true&w=majority&appName=Cluster0', {
+mongoose.connect('mongodb://', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 }).then(() => console.log('MongoDB connected'))
